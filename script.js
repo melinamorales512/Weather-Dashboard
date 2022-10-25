@@ -45,7 +45,7 @@ function displayWeather(event) {
   }
 }
 
-//gets current weather for searched city and displays selected information in current weather card
+//Obtent current weather for searched city and displays selected information in current weather card
 function currentWeather(city) {
   const apiKey = "ee41023e27cbe7d2955c0ddebe7d0f31";
   var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + apiKey + "&units=imperial";
@@ -70,7 +70,7 @@ function currentWeather(city) {
     var wind = document.getElementById("wind-speed");
     wind.textContent = "Wind Speed: " + weatherData.wind.speed + " MPH";
 
-    //gets UV data, sets icon color based on number retrieved
+    //Sets icon color based on number retrieved
     var latValue = weatherData.coord.lat;
     var lonValue = weatherData.coord.lon;
     var queryUv = "https://api.openweathermap.org/data/2.5/uvi?";
@@ -95,7 +95,7 @@ function currentWeather(city) {
       }
     });
 
-    //gets forecast data and converts it to the next 5 days. creates weather cards for the next 5 days
+    //gets forecast data and converts it to the next 5 days. 
     $.ajax({
       url: "https://api.openweathermap.org/data/2.5/onecall?units=imperial&" + "lat=" + latValue + "&lon=" + lonValue + "&exclude=current,minutely,hourly,alerts" + "&appid=" + apiKey,
       method: "GET",
